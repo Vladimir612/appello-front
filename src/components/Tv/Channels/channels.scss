@@ -1,0 +1,52 @@
+@import "../../../variables.scss";
+
+.channels {
+  background: $dark-blue;
+  padding: 3rem 0 6rem 0;
+  h2,
+  p {
+    text-align: center;
+    color: #fff;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  p {
+    font-size: 1.2rem;
+    margin: 2rem 0 3rem 0;
+  }
+  .circle-row {
+    @include box-center;
+    gap: 4.5rem;
+    .circle {
+      @include box-center($direction: column);
+      background: #fff;
+      padding: 1rem;
+      border-radius: 50%;
+      width: 8rem;
+      height: 8rem;
+      h4,
+      p {
+        text-align: center;
+        color: $dark-blue;
+        font-weight: 500;
+      }
+      h4 {
+        font-size: 1.5rem;
+        font-weight: 800;
+      }
+      p {
+        font-size: 1.1rem;
+        margin: initial;
+      }
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .channels {
+    .circle-row {
+      flex-direction: column;
+    }
+  }
+}

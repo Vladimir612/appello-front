@@ -1,0 +1,44 @@
+@import "../../../../variables.scss";
+
+.question {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  transition: all ease-in-out 0.3s;
+  &.active {
+    background: $light-green;
+    .top {
+      border-bottom: 3px solid $dark-blue;
+      color: $dark-blue;
+    }
+  }
+  .top {
+    width: 100%;
+    padding: initial;
+    color: #fff;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid #fff;
+    transition: all ease-in-out 0.3s;
+    @include box-center($justify: space-between);
+    h3 {
+      width: 90%;
+      text-align: left;
+    }
+    &:hover {
+      transform: initial;
+    }
+  }
+  .answer {
+    overflow: hidden;
+    p {
+      line-height: 1.7rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: $dark-blue;
+    }
+  }
+}

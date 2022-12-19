@@ -1,0 +1,27 @@
+@import "../../variables.scss";
+
+.appello-about-wrapper {
+  width: 22rem !important;
+  max-width: 95%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  * {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  > div {
+    background-color: transparent !important;
+  }
+}
+
+.about-text {
+  p {
+    color: $dark-blue;
+    margin: 1rem 0;
+    font-size: 1.15rem;
+  }
+  margin-bottom: 3rem;
+}

@@ -1,0 +1,96 @@
+@import "../../../variables.scss";
+
+.internet-card {
+  width: 25rem;
+  box-shadow: 3px 3px 16px #00000040;
+  * {
+    color: $dark-blue;
+    text-align: center;
+    font-weight: 500;
+  }
+  p {
+    font-size: 1.15rem;
+    margin: 0.2rem 0;
+  }
+  .white-bg {
+    @include box-center($direction: column);
+    background: #fff;
+    padding: 1rem;
+    .circle {
+      @include box-center;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background: $dark-blue;
+      p {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: $light-green;
+      }
+    }
+    .row {
+      @include box-center;
+      gap: 2rem;
+    }
+    .download,
+    .upload {
+      p:nth-child(2) {
+        font-weight: 700;
+        font-size: 1.7rem;
+      }
+    }
+  }
+  .dark-bg {
+    @include box-center($direction: column);
+    background: $dark-blue;
+    padding: 0.5rem;
+    button {
+      margin: 1rem 0;
+    }
+  }
+
+  .old {
+    font-size: 1.2rem;
+    font-weight: 600;
+    position: relative;
+    span {
+      color: #fff;
+      opacity: 0.55;
+    }
+    .line {
+      display: inline-block;
+      width: 120%;
+      background: #fff;
+      position: absolute;
+      top: 50%;
+      left: -10%;
+      transform: translateY(-50%);
+      height: 1.2px;
+      opacity: 1;
+    }
+  }
+  span:nth-child(2) {
+    font-size: 0.5em;
+  }
+  .new {
+    font-size: 2.5rem;
+    span {
+      font-weight: 600;
+      color: $light-green;
+      &:nth-child(2) {
+        font-size: 0.65em;
+      }
+    }
+  }
+  .content {
+    ul {
+      list-style-type: disc;
+      padding: 1rem 2rem;
+      li {
+        font-size: 1.05rem;
+        padding: 0.4rem 0;
+        text-align: left;
+      }
+    }
+  }
+}

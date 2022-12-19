@@ -15,7 +15,10 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "framer-motion": "^7.1.1",
     "gatsby": "^5.2.0",
+    "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-image": "^3.2.0",
     "gatsby-plugin-manifest": "^5.2.0",
     "gatsby-plugin-sass": "^6.2.0",
@@ -26,6 +29,7 @@
     "gatsby-transformer-sharp": "^5.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
     "sass": "^1.56.1"
   }
 }

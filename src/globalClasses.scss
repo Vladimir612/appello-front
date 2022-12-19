@@ -1,0 +1,15 @@
+.padding-global {
+  padding: 0 12rem;
+}
+
+@media (max-width: 1200px) {
+  .padding-global {
+    padding: 0rem 4rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .padding-global {
+    padding: 0rem 1rem;
+  }
+}

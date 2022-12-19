@@ -1,0 +1,51 @@
+@import "../../../../variables.scss";
+
+.spec-item {
+  @include box-center($justify: space-between);
+  gap: 10rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  &:nth-child(2n) {
+    background: #efefef;
+  }
+  .left {
+    @include box-center($direction: column);
+    gap: 1rem;
+    h3 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      text-align: center;
+      color: $dark-blue;
+      width: 18rem;
+    }
+    .img-wrapper {
+      width: 5rem;
+      > div {
+        background-color: transparent !important;
+      }
+    }
+  }
+  p {
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: $dark-blue;
+  }
+}
+
+@media (max-width: 850px) {
+  .spec-item {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 750px) {
+  .spec-item {
+    flex-direction: column;
+    * {
+      text-align: center !important;
+    }
+  }
+}

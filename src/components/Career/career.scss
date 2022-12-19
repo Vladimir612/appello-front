@@ -1,0 +1,42 @@
+@import "../../variables.scss";
+
+.positions {
+  @include box-center;
+  gap: 15rem;
+  margin-top: 5rem;
+  .position {
+    @include box-center($direction: column);
+    gap: 2rem;
+    p {
+      width: 15rem;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      color: $dark-blue;
+      padding: 0 1rem;
+    }
+  }
+  .circle {
+    @include box-center;
+    background: $dark-blue;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    .pos-wrapper {
+      width: 6rem !important;
+      height: 6rem !important;
+      * {
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .positions {
+    flex-direction: column;
+    gap: 7rem;
+  }
+}

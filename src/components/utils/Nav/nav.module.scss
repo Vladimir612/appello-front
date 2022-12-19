@@ -1,0 +1,122 @@
+@import "../../../variables.scss";
+
+.nav {
+  @include box-center($justify: space-between);
+  font-size: 1.4rem;
+  font-weight: 700;
+  position: fixed;
+  padding: 0.6rem 12rem;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1500;
+  height: 4.5rem;
+  background: $dark-blue;
+  button {
+    padding: 0;
+  }
+  .relBtn {
+    position: relative;
+    .sublinks {
+      position: absolute;
+      height: 8.5rem;
+      @include box-center(
+        $direction: column,
+        $justify: space-between,
+        $align: flex-start
+      );
+      bottom: -9.5rem;
+      left: -1rem;
+      background: $dark-blue;
+      padding: 0.9rem 0.5rem;
+      border-bottom-left-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+      button {
+        white-space: nowrap;
+        &:hover {
+          transform: scale(1.02);
+        }
+      }
+    }
+  }
+  .submenuBtn {
+    @include box-center;
+    gap: 0.2rem;
+  }
+  .submenuBtn,
+  a {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  .hamburgerMenu {
+    @include box-center($direction: column, $justify: space-between);
+    display: none;
+    z-index: 100;
+    height: 1rem;
+    cursor: pointer;
+    background: initial;
+    padding: initial;
+    &:hover,
+    &:active {
+      transform: initial;
+    }
+    .line {
+      width: 1.8rem;
+      height: 0.2rem;
+      border-radius: 0.2rem;
+      background-color: #fff;
+    }
+  }
+  .logo {
+    width: 11rem;
+    > div {
+      background-color: transparent !important;
+    }
+  }
+  .links {
+    @include box-center;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .nav {
+    padding: 0.6rem 4rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .nav {
+    .hamburgerMenu {
+      display: flex;
+    }
+    .relBtn {
+      .sublinks {
+        background: #1379ce;
+        border-radius: 0.5rem;
+      }
+    }
+    .links {
+      flex-direction: column;
+      gap: 2rem;
+      height: 100vh;
+      width: 100vw;
+      position: absolute;
+      left: 100vw;
+      top: 0;
+      background: $dark-blue;
+      transition: all ease-in-out 0.3s;
+      &.active {
+        left: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nav {
+    padding: 0.6rem 1rem;
+    box-shadow: 0 3px 9px 2px #022b3a15;
+  }
+}

@@ -1,0 +1,27 @@
+@import "../../../variables.scss";
+
+.faq-section {
+  width: 100vw;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  background: $dark-blue;
+  @include box-center($direction: column);
+  gap: 4rem;
+  .heading {
+    gap: 1.5rem;
+    @include box-center($direction: column);
+    h2 {
+      font-size: 1.6rem;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      span {
+        color: $light-green;
+      }
+    }
+  }
+  .questions {
+    width: 50rem;
+    max-width: 95%;
+  }
+}

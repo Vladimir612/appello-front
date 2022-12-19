@@ -1,0 +1,53 @@
+@import "../../variables.scss";
+
+.packages {
+  @include box-center;
+  gap: 5rem;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  .package {
+    @include box-center($direction: column);
+    gap: 2rem;
+    .package-text {
+      * {
+        width: 15rem;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+        color: $dark-blue;
+      }
+      h4 {
+        line-height: 1.9rem;
+        font-size: 1.4rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+  .circle {
+    @include box-center;
+    background: $dark-blue;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    .pack-wrapper {
+      width: 9rem !important;
+      height: 9rem !important;
+      > div {
+        background-color: transparent !important;
+      }
+      * {
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .packages {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,25 @@
+@import "../../../variables.scss";
+
+.location-section {
+  @include box-center($direction: column);
+  width: 100vw;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background: $dark-blue;
+  .img-wrapper {
+    > div {
+      background-color: transparent !important;
+    }
+  }
+  p {
+    color: #fff;
+    margin: 1rem;
+    font-weight: 500;
+    span {
+      color: $light-green;
+    }
+  }
+  * {
+    text-align: center;
+  }
+}
