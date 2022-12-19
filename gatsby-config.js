@@ -3,8 +3,12 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `appello`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `Appello`,
+    description: `Edukativni centar Binary Bioskop organizuje online pripremu za prijemni         ispit iz matematike za upis na FON 2023/2024. Celokupnu pripremu je, putem naše e-learning platforme UpišiFon.rs, moguće pohađati od kuće.`,
+    author: `@binarybioskop`,
+    image: `/logo.png`,
+    keywords: `yettel, internet, fiksni, televizija, povoljno`,
+    siteUrl: `https://appello.rs/`,
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -13,7 +17,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/logo.png",
+        icon: "src/images/logoIcon.png",
       },
     },
     "gatsby-transformer-remark",

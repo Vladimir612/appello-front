@@ -1,9 +1,10 @@
-import * as React from "react";
+import React from "react";
+import NotFound from "./../components/NotFound/NotFound";
 
-const NotFoundPage = () => {
-  return <main>404</main>;
+const Error = () => {
+  return <NotFound />;
 };
 
-export default NotFoundPage;
+export default Error;
 
 export const Head = () => <title>Not found</title>;
