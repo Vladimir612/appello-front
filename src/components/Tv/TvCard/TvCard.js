@@ -2,6 +2,7 @@ import React from "react";
 import "./tvCard.scss";
 import Button from "./../../utils/Button/Button";
 import "./tvCard.scss";
+import { Link } from "gatsby";
 
 const TvCard = ({ letter, newPrice, children }) => {
   return (
@@ -20,7 +21,11 @@ const TvCard = ({ letter, newPrice, children }) => {
         <p style={{ color: "#fff", margin: 0, lineHeight: "initial" }}>
           mesečno
         </p>
-        <Button>NARUČI ONLAJN</Button>
+        <Button>
+          <Link to="/proveraLokacije" state={{ packageClicked: letter }}>
+            NARUČI ONLAJN
+          </Link>
+        </Button>
       </div>
     </div>
   );

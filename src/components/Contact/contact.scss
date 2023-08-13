@@ -1,0 +1,56 @@
+@import "../../variables.scss";
+
+.contact-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  margin-bottom: 4rem;
+  .detail-wrapper {
+    @include box-center($justify: flex-start);
+    gap: 2rem;
+    p {
+      line-height: 1.4rem;
+      font-weight: 600;
+    }
+    .circle-detail {
+      @include box-center;
+      background: $dark-blue;
+      border-radius: 50%;
+      width: 4.5rem !important;
+      height: 4.5rem !important;
+    }
+    .img-wrapper {
+      width: 2.2rem !important;
+      height: 100% !important;
+      > div {
+        background-color: transparent !important;
+      }
+      img {
+        object-fit: contain !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .contact-details {
+    grid-template-columns: 1fr;
+    .detail-wrapper {
+      &.first {
+        grid-row: 1 / 2;
+      }
+      &.second {
+        grid-row: 4 / 5;
+      }
+      &.third {
+        grid-row: 3 / 4;
+      }
+      &.fourth {
+        grid-row: 5 / 6;
+      }
+      &.fifth {
+        grid-row: 2 / 3;
+      }
+    }
+  }
+}

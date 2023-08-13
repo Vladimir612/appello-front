@@ -11,10 +11,14 @@
       background-color: transparent !important;
     }
   }
+  a {
+    color: $dark-blue;
+  }
   p {
     color: #fff;
     margin: 1rem;
     font-weight: 500;
+    line-height: 1.5rem;
     span {
       color: $light-green;
     }

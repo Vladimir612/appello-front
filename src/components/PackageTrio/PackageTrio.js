@@ -9,7 +9,7 @@ import "../../globalClasses.scss";
 const PackageTrio = () => {
   return (
     <Layout>
-      <Title>TRIO PAKETI(INTERNET + TELEVIZIJA + FIKSNI)</Title>
+      <Title>TRIO PAKETI (INTERNET + TELEVIZIJA + FIKSNI)</Title>
       <Subtitle>STANDARDNA PONUDA</Subtitle>
       <div className="cards">
         <DuoCard

@@ -3,6 +3,7 @@ import React from "react";
 import "./location.scss";
 import Button from "./../../utils/Button/Button";
 import "../../../globalClasses.scss";
+import { Link } from "gatsby";
 
 const Location = () => {
   return (
@@ -13,7 +14,11 @@ const Location = () => {
         className="img-wrapper"
       />
       <p>Saznajte koje su usluge dostupne na Vašoj adresi:</p>
-      <Button>PROVERITE DOSTUPNOST NA VAŠOJ LOKACIJI</Button>
+      <Button>
+        <Link to="/proveraLokacije">
+          PROVERITE DOSTUPNOST NA VAŠOJ LOKACIJI
+        </Link>
+      </Button>
       <p>
         Potrebna vam je <span>pomoć</span>?
       </p>

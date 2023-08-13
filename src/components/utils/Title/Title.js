@@ -1,7 +1,7 @@
 import React from "react";
 import "../../../globalClasses.scss";
 
-const Title = ({ children }) => {
+const Title = ({ children, customStyle }) => {
   const style = {
     color: "#002340",
     fontSize: "2.4rem",
@@ -9,7 +9,7 @@ const Title = ({ children }) => {
     fontWeight: "700",
     textTransform: "uppercase",
     letterSpacing: "2px",
-    // ...customStyle,
+    ...customStyle,
   };
 
   return (

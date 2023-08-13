@@ -6,7 +6,7 @@ import { AiFillInstagram, AiFillFacebook } from "react-icons/ai";
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer} padding-global`}>
       <div className={styles.left}>
         <StaticImage
           src="../../../images/logo.png"

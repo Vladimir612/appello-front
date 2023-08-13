@@ -1,0 +1,83 @@
+@import "../../../variables.scss";
+
+.contact-form {
+  background: $dark-blue;
+  padding-top: 0.1rem;
+  padding-bottom: 2rem;
+  min-height: 50vh;
+  .success-msg {
+    color: #fff;
+    text-align: center;
+  }
+  .form-row {
+    @include box-center($justify: flex-start);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .input-group {
+    flex: 1;
+    gap: 1rem;
+    @include box-center($direction: column, $align: flex-start);
+    label {
+      color: #fff;
+    }
+    input,
+    textarea {
+      background: #ebebeb45;
+      outline: none;
+      border: none;
+      width: 100%;
+      height: 2rem;
+      border-radius: 0.5rem;
+      padding: 0.2rem 0.4rem;
+      color: #fff;
+    }
+    textarea {
+      height: 17rem;
+      padding-top: 0.75rem;
+      resize: none;
+    }
+  }
+  .button-wrapper {
+    width: 100%;
+    margin-top: 1.2rem;
+    @include box-center;
+    position: relative;
+    .rec-btn {
+      position: absolute;
+      left: 0;
+    }
+  }
+  .error-message {
+    height: 2rem;
+    margin-top: 0.5rem;
+    p {
+      color: #ff2a00;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .contact-form {
+    .form-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .input-group {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .contact-form {
+    .button-wrapper {
+      gap: 2rem;
+      flex-direction: column;
+      .rec-btn {
+        position: initial;
+      }
+    }
+  }
+}

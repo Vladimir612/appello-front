@@ -16,7 +16,7 @@ const NotFound = () => {
         <p className={styles.four}>4</p>
       </div>
       <p className={styles.text}>Nažalost nemamo stranicu na ovoj adresi</p>
-      <Button type="pink">
+      <Button>
         <Link to="/">POČETNA</Link>
       </Button>
     </div>

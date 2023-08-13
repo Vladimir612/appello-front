@@ -1,6 +1,7 @@
 import React from "react";
 import "./duoCard.scss";
 import Button from "./../../utils/Button/Button";
+import { Link } from "gatsby";
 
 const DuoCard = ({
   letter,
@@ -43,7 +44,11 @@ const DuoCard = ({
         <p style={{ color: "#fff", margin: 0, lineHeight: "initial" }}>
           mesečno
         </p>
-        <Button>NARUČI ONLAJN</Button>
+        <Button>
+          <Link to="/proveraLokacije" state={{ packageClicked: letter }}>
+            NARUČI ONLAJN
+          </Link>
+        </Button>
       </div>
     </div>
   );

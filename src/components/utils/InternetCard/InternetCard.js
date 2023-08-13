@@ -1,6 +1,7 @@
 import React from "react";
 import "./internetCard.scss";
 import Button from "./../Button/Button";
+import { Link } from "gatsby";
 
 const InternetCard = ({
   letter,
@@ -42,7 +43,11 @@ const InternetCard = ({
         <p style={{ color: "#fff", margin: 0, lineHeight: "initial" }}>
           mesečno
         </p>
-        <Button>NARUČI ONLAJN</Button>
+        <Button>
+          <Link to="/proveraLokacije" state={{ packageClicked: letter }}>
+            NARUČI ONLAJN
+          </Link>
+        </Button>
       </div>
     </div>
   );

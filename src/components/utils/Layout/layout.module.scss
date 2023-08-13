@@ -1,6 +1,8 @@
 @import "../../../global.scss";
 
 .layout {
+  width: 100vw;
+  overflow-x: hidden;
   .pageContainer {
     min-height: calc(100vh - 9.5rem);
     margin-top: 4.5rem;
@@ -8,7 +10,7 @@
   }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1100px) {
   .layout {
     .pageContainer {
       min-height: calc(100vh - 14.5rem);

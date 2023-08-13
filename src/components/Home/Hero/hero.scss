@@ -36,11 +36,13 @@
       p {
         font-size: 1.2rem;
         font-weight: 500;
+        line-height: 1.4rem;
       }
     }
     .number {
       font-size: 4rem;
       font-weight: 600;
+      line-height: 4.5rem;
     }
   }
   h1 {
@@ -63,12 +65,13 @@
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 850px) {
   .hero {
     flex-direction: column;
-    justify-content: center;
-    gap: 3rem;
+    justify-content: flex-start;
+    gap: 1rem;
     padding: 2rem 0;
+    min-height: initial;
     h1 {
       width: initial;
       text-align: center;
@@ -76,6 +79,14 @@
     .right {
       align-items: center;
       padding: 1rem;
+    }
+    .hero-img-wrapper {
+      &.first {
+        height: 13rem !important;
+        img {
+          object-position: center !important;
+        }
+      }
     }
   }
 }

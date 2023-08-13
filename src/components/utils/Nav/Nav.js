@@ -13,12 +13,14 @@ const Nav = () => {
 
   return (
     <div className="global-wrapper bg-blue">
-      <nav className={styles.nav}>
-        <StaticImage
-          src="../../../images/logo.png"
-          alt="Appello logo"
-          className={styles.logo}
-        />
+      <nav className={`${styles.nav} padding-global`}>
+        <Link to="/">
+          <StaticImage
+            src="../../../images/logo.png"
+            alt="Appello logo"
+            className={styles.logo}
+          />
+        </Link>
         <div
           className={
             menuOpen ? `${styles.links} ${styles.active}` : styles.links
@@ -43,46 +45,57 @@ const Nav = () => {
               Usluge
               <IoIosArrowDown size={25} color="#fff" />
             </button>
-            {submenuOpen && (
-              <div className={styles.sublinks}>
-                <button
-                  onClick={() => {
-                    setMenuOpen(false);
-                    setSubmenuOpen(false);
-                  }}
+
+            <div
+              className={`${styles.sublinks} ${submenuOpen && styles.active}`}
+            >
+              <button
+                onClick={() => {
+                  setMenuOpen(false);
+                  setSubmenuOpen(false);
+                }}
+              >
+                <Link to="/usluge/internet" activeStyle={{ color: "#B4FF00" }}>
+                  Internet
+                </Link>
+              </button>
+              <button
+                onClick={() => {
+                  setMenuOpen(false);
+                  setSubmenuOpen(false);
+                }}
+              >
+                <Link
+                  to="/usluge/televizija"
+                  activeStyle={{ color: "#B4FF00" }}
                 >
-                  <Link
-                    to="/usluge/internet"
-                    activeStyle={{ color: "#B4FF00" }}
-                  >
-                    Internet
-                  </Link>
-                </button>
-                <button
-                  onClick={() => {
-                    setMenuOpen(false);
-                    setSubmenuOpen(false);
-                  }}
+                  Digitalna televizija
+                </Link>
+              </button>
+              <button
+                onClick={() => {
+                  setMenuOpen(false);
+                  setSubmenuOpen(false);
+                }}
+              >
+                <Link
+                  to="/usluge/paketi/plusPaketi"
+                  activeStyle={{ color: "#B4FF00" }}
                 >
-                  <Link
-                    to="/usluge/televizija"
-                    activeStyle={{ color: "#B4FF00" }}
-                  >
-                    Digitalna televizija
-                  </Link>
-                </button>
-                <button
-                  onClick={() => {
-                    setMenuOpen(false);
-                    setSubmenuOpen(false);
-                  }}
-                >
-                  <Link to="/usluge/paketi" activeStyle={{ color: "#B4FF00" }}>
-                    Paketi
-                  </Link>
-                </button>
-              </div>
-            )}
+                  Fiksni
+                </Link>
+              </button>
+              <button
+                onClick={() => {
+                  setMenuOpen(false);
+                  setSubmenuOpen(false);
+                }}
+              >
+                <Link to="/usluge/paketi" activeStyle={{ color: "#B4FF00" }}>
+                  Paketi
+                </Link>
+              </button>
+            </div>
           </div>
           <button
             onClick={() => {

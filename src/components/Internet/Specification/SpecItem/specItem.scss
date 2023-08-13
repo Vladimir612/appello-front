@@ -1,8 +1,9 @@
 @import "../../../../variables.scss";
 
 .spec-item {
-  @include box-center($justify: space-between);
-  gap: 10rem;
+  @include box-center($justify: flex-start);
+  gap: 8rem;
+  width: 100%;
   padding-top: 2rem;
   padding-bottom: 2rem;
   &:nth-child(2n) {
@@ -41,7 +42,7 @@
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 850px) {
   .spec-item {
     flex-direction: column;
     * {

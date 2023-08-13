@@ -1,26 +1,25 @@
-import React from "react";
-import Layout from "./../utils/Layout/Layout";
+import React, { useState } from "react";
+import Layout from "../utils/Layout/Layout";
 import Title from "../utils/Title/Title";
-import "./career.scss";
-import { graphql, useStaticQuery } from "gatsby";
+import "./locationChecker.scss";
+import { useStaticQuery } from "gatsby";
+import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { AiFillCheckSquare, AiOutlineBorder } from "react-icons/ai";
 import Button from "./../utils/Button/Button";
-import { AiFillCheckSquare } from "react-icons/ai";
-import { AiOutlineBorder } from "react-icons/ai";
-import { useState } from "react";
-import axios from "axios";
 import { validateEmail } from "./../Contact/ContactForm/validation";
+import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
 
-const Career = () => {
+const LocationChecker = ({ packageClicked }) => {
   const data = useStaticQuery(graphql`
-    query getCareerImages {
+    query getLocationCheckerImages {
       first: file(relativePath: { eq: "contact1.png" }) {
         childImageSharp {
           gatsbyImageData(layout: FIXED)
         }
       }
-      second: file(relativePath: { eq: "contact5.png" }) {
+      second: file(relativePath: { eq: "contact3.png" }) {
         childImageSharp {
           gatsbyImageData(layout: FIXED)
         }
@@ -30,7 +29,11 @@ const Career = () => {
 
   const recaptchaRef = React.createRef();
 
-  const [position, setPosition] = useState("");
+  const [isHouse, setIsHouse] = useState(false);
+
+  const [city, setCity] = useState("");
+  const [place, setPlace] = useState("");
+  const [street, setStreet] = useState("");
   const [note, setNote] = useState("");
 
   const [fullname, setFullname] = useState("");
@@ -46,9 +49,16 @@ const Career = () => {
 
   const submitLocationCheckerForm = async (e) => {
     e.preventDefault();
-
     const recaptchaValue = recaptchaRef.current.getValue();
-    if (fullname === "" || phone === "" || note === "" || position === "") {
+
+    if (
+      fullname === "" ||
+      phone === "" ||
+      note === "" ||
+      city === "" ||
+      place === "" ||
+      street === ""
+    ) {
       setErrorMessage("Popunite sva obavezna polja!");
       return;
     }
@@ -72,15 +82,22 @@ const Career = () => {
 
     setSubmitted(true);
 
-    await axios.post("https://appello-mailsender.vercel.app/api/email/career", {
-      careerDetails: {
-        imePrezime: fullname,
-        email: email,
-        telefon: phone,
-        pozicija: position,
-        napomena: note,
-      },
-    });
+    await axios.post(
+      "https://appello-mailsender.vercel.app/api/email/location-checker",
+      {
+        locationDetails: {
+          imePrezime: fullname,
+          email: email,
+          telefon: phone,
+          grad: city,
+          naselje: place,
+          ulica: street,
+          stanKuca: isHouse ? "Kuća" : "Stan",
+          paket: packageClicked,
+          napomena: note,
+        },
+      }
+    );
 
     setSuccess(true);
 
@@ -89,12 +106,13 @@ const Career = () => {
 
   return (
     <Layout>
-      <div className="career padding-global">
+      <div className="location-checker padding-global">
         <Title customStyle={{ color: "#fff", margin: 0, padding: 0 }}>
-          KARIJERA
+          PROVERA LOKACIJE
         </Title>
-        <p className="desc">
-          Ukoliko biste želeli da radite kod nas popunite ovu kratku formu
+        <p>
+          Unesi kontakt podatke i podatke lokacije ako želiš da koristiš usluge
+          Yettela.
         </p>
         <div className="line"></div>
         {success ? (
@@ -103,38 +121,71 @@ const Career = () => {
           </p>
         ) : (
           <form>
-            <div className="position-subtitle">
+            <div className="location-subtitle">
               <GatsbyImage
                 image={data.second.childImageSharp.gatsbyImageData}
-                alt="position icon"
-                className="img-wrapper position"
+                alt="location icon"
+                className="img-wrapper"
               />
-              <h2>POZICIJA</h2>
+              <h2>LOKACIJA</h2>
             </div>
             <div className="btns-wrapper">
-              <div className="radioBtn">
-                <button
-                  type="button"
-                  className={`circle ${
-                    position === "instalater" && "activeTrue"
-                  }
-                  `}
-                  onClick={() => setPosition("instalater")}
-                >
-                  a
-                </button>
-                <p>Instalater telekomunikacionih mreža</p>
+              <button
+                className={!isHouse ? "active" : ""}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsHouse(false);
+                }}
+              >
+                Stan
+              </button>
+              <span>ili</span>
+              <button
+                className={isHouse ? "active" : ""}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsHouse(true);
+                }}
+              >
+                Kuća
+              </button>
+            </div>
+            <div className="form-row">
+              <div className="input-group">
+                <label htmlFor="city">
+                  Grad/Opština<span style={{ color: "#b4ff00" }}>*</span>
+                </label>
+                <input
+                  type="text"
+                  name="city"
+                  id="city"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                />
               </div>
-              <div className="radioBtn">
-                <button
-                  type="button"
-                  className={`circle ${position === "savetnik" && "activeTrue"}
-                  `}
-                  onClick={() => setPosition("savetnik")}
-                >
-                  a
-                </button>
-                <p>Savetnik za telekomunikacione usluge</p>
+              <div className="input-group">
+                <label htmlFor="place">
+                  Naselje<span style={{ color: "#b4ff00" }}>*</span>
+                </label>
+                <input
+                  type="text"
+                  name="place"
+                  id="place"
+                  value={place}
+                  onChange={(e) => setPlace(e.target.value)}
+                />
+              </div>
+              <div className="input-group">
+                <label htmlFor="street-address">
+                  Ulica<span style={{ color: "#b4ff00" }}>*</span>
+                </label>
+                <input
+                  type="street-address"
+                  name="street-address"
+                  id="street-address"
+                  value={street}
+                  onChange={(e) => setStreet(e.target.value)}
+                />
               </div>
             </div>
             <div className="input-group">
@@ -234,4 +285,4 @@ const Career = () => {
   );
 };
 
-export default Career;
+export default LocationChecker;

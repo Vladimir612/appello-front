@@ -3,6 +3,10 @@
 .tv-card {
   width: 25rem;
   box-shadow: 3px 3px 16px #00000040;
+  max-width: 90%;
+  a {
+    font-weight: 700;
+  }
   * {
     color: $dark-blue;
     text-align: center;
